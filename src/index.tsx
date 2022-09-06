@@ -1,6 +1,7 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
 import { Router, useRoutes } from "@solidjs/router";
+import { ErrorBoundary } from "solid-js";
 
 import "./index.css";
 import routes from "./routes";
@@ -11,8 +12,10 @@ const Routes = useRoutes(routes)
 render(
   () => (
     <Router>
-      <Nav />
-      <Routes />
+      <ErrorBoundary fallback={err => err}>
+        <Nav />
+        <Routes />
+      </ErrorBoundary>
     </Router>
   ),
   document.getElementById("root") as HTMLElement

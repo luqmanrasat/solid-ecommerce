@@ -9,4 +9,8 @@ export default [
     path: "/about",
     component: lazy(() => import("./pages/About")),
   },
+  {
+    path: "*",
+    component: lazy(() => import("./pages/NotFound")),
+  },
 ];
